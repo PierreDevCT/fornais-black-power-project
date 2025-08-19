@@ -1,7 +1,7 @@
 // Año footer
 document.getElementById('year').textContent = new Date().getFullYear();
 
-// Modal Constitución
+/* // Modal Constitución
 const openBtns = document.querySelectorAll('[data-open]');
 const closeBtns = document.querySelectorAll('[data-close]');
 openBtns.forEach(btn => btn.addEventListener('click', () => {
@@ -11,7 +11,27 @@ openBtns.forEach(btn => btn.addEventListener('click', () => {
 closeBtns.forEach(btn => btn.addEventListener('click', (e) => {
     const dialog = e.target.closest('dialog');
     dialog?.close();
-}));
+})); */
+
+// Modal Constitución
+const openBtns = document.querySelectorAll('[data-open]');
+const closeBtns = document.querySelectorAll('[data-close]');
+
+openBtns.forEach(btn => {
+    btn.addEventListener('click', () => {
+        const sel = btn.getAttribute('data-open');
+        const dialog = document.querySelector(sel);
+        if (dialog) dialog.showModal();
+    });
+});
+
+closeBtns.forEach(btn => {
+    btn.addEventListener('click', (e) => {
+        const dialog = e.target.closest('dialog');
+        if (dialog) dialog.close();
+    });
+});
+
 
 // Tema simple (toggle fondo)
 document.getElementById('themeBtn').addEventListener('click', () => {
@@ -34,7 +54,58 @@ function updateCountdown() {
 }
 setInterval(updateCountdown, 1000); updateCountdown();
 
-// Tabla: ordenar y sumar "Victoria Rata"
+/* TORNEOS / BRACKET MOCK */
+
+// Tabla: ordenar y sumar victorias/kills
+const rankBody = document.getElementById('tablaRank');
+
+// Ordenar por victorias
+document.getElementById('sortBtn').addEventListener('click', () => {
+    const rows = Array.from(rankBody.querySelectorAll('tr'));
+    rows.sort((a, b) => parseInt(b.children[1].textContent) - parseInt(a.children[1].textContent));
+    rows.forEach(r => rankBody.appendChild(r));
+});
+
+// Botones dinámicos
+rankBody.addEventListener('click', (e) => {
+    const row = e.target.closest('tr');
+    if (!row) return;
+
+    if (e.target.matches('[data-add-win]')) {
+        const winCell = row.children[1];
+        winCell.textContent = parseInt(winCell.textContent || '0') + 1;
+    }
+    if (e.target.matches('[data-add-kill]')) {
+        const killCell = row.children[2];
+        killCell.textContent = parseInt(killCell.textContent || '0') + 1;
+    }
+});
+
+// Establecer Líder: toma el primero por victorias
+document.getElementById('liderBtn').addEventListener('click', () => {
+    const rows = Array.from(rankBody.querySelectorAll('tr'));
+    rows.sort((a, b) => parseInt(b.children[1].textContent) - parseInt(a.children[1].textContent));
+    const leader = rows[0]?.children[0]?.textContent || 'Por definir';
+    document.getElementById('liderActual').textContent = leader;
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+});
+
+// Exportar CSV
+document.getElementById('exportBtn').addEventListener('click', () => {
+    const rows = Array.from(rankBody.querySelectorAll('tr')).map(tr => {
+        return Array.from(tr.children).slice(0, 3).map(td => td.textContent.trim());
+    });
+    const header = ['Jugador', 'Victorias', 'Eliminaciones'];
+    const csv = [header, ...rows].map(r => r.join(',')).join('\n');
+    const blob = new Blob([csv], { type: 'text/csv' });
+    const a = document.createElement('a');
+    a.href = URL.createObjectURL(blob);
+    a.download = 'clasificacion_fbp.csv';
+    a.click();
+    URL.revokeObjectURL(a.href);
+});
+
+/* // Tabla: ordenar y sumar "Victoria Rata"
 const rankBody = document.getElementById('tablaRank');
 document.getElementById('sortBtn').addEventListener('click', () => {
     const rows = Array.from(rankBody.querySelectorAll('tr'));
@@ -71,7 +142,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
     a.download = 'clasificacion_fbp.csv';
     a.click();
     URL.revokeObjectURL(a.href);
-});
+}); */
 
 // Carroñómetro simple (memoria local)
 const marcador = JSON.parse(localStorage.getItem('carro') || '{}');
