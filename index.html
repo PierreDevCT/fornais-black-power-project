@@ -1,0 +1,489 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fornais Black Power — Comunidad</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body class="bg-slate-950 text-slate-100">
+    <!-- NAV -->
+    <header class="sticky top-0 z-50 bg-slate-950/80 backdrop-blur border-b border-slate-800">
+        <div class="max-w-6xl mx-auto px-4 py-3 flex items-center justify-between">
+            <a href="#" class="font-bold tracking-wider text-indigo-400 text-lg">FORNAIS <span
+                    class="text-indigo-200">BLACK</span> POWER</a>
+            <nav class="hidden md:flex gap-6 text-sm">
+                <a href="#hero" class="hover:text-indigo-300">Inicio</a>
+                <a href="#agenda" class="hover:text-indigo-300">Agenda</a>
+                <a href="#reglas" class="hover:text-indigo-300">Constitución</a>
+                <a href="#torneos" class="hover:text-indigo-300">Torneos</a>
+                <a href="#carro" class="hover:text-indigo-300">Carroñómetro</a>
+                <a href="#faq" class="hover:text-indigo-300">FAQ</a>
+            </nav>
+            <div class="flex items-center gap-2">
+                <button id="themeBtn"
+                    class="px-3 py-1.5 rounded-xl text-xs bg-slate-900 border border-slate-700 hover:border-indigo-400">Tema</button>
+                <a href="#unete"
+                    class="px-3 py-1.5 rounded-xl text-xs bg-indigo-600 hover:bg-indigo-500 transition">Únete</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="relative overflow-hidden">
+        <div class="absolute inset-0 grid-bg opacity-40"></div>
+        <div class="absolute -top-20 -right-32 w-[36rem] h-[36rem] rounded-full bg-indigo-600/20 blur-3xl"></div>
+        <div class="max-w-6xl mx-auto px-4 py-20 md:py-28 relative">
+            <div class="grid md:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h1 class="text-4xl md:text-6xl font-bold leading-tight">Hermandad Gamer
+                        <span class="block text-indigo-400">Fornais Black Power</span>
+                    </h1>
+                    <p class="mt-4 text-slate-300">Partidas justas, risas aseguradas y sanciones memorables (te estamos
+                        mirando, Joel 🐀).</p>
+                    <div class="mt-6 flex gap-3">
+                        <a href="#reglas" class="px-5 py-3 rounded-2xl bg-indigo-600 hover:bg-indigo-500 transition">Ver
+                            Constitución</a>
+                        <a href="#torneos"
+                            class="px-5 py-3 rounded-2xl bg-slate-900 border border-slate-700 hover:border-indigo-400">Próximo
+                            Torneo</a>
+                    </div>
+                    <!-- Countdown configurable -->
+                    <div class="mt-8 glass neon rounded-2xl p-4">
+                        <p class="text-xs uppercase tracking-widest text-slate-400">Cuenta regresiva a la próxima noche
+                            gamer</p>
+                        <div id="countdown" class="text-2xl md:text-3xl font-semibold mt-2">Cargando…</div>
+                        <p class="text-xs text-slate-400 mt-2">Configura la fecha en <code>data-date</code> del
+                            contenedor <code>#countdown</code>.</p>
+                        <!-- <p class="text-xs text-slate-400 mt-2">Configura la fecha en <code>data-date</code> del contenedor <code>#countdown</code>.</p> -->
+                    </div>
+                </div>
+                <div class="relative">
+                    <div class="aspect-video rounded-3xl neon overflow-hidden">
+                        <img src="https://cdn-0001.qstv.on.epicgames.com/oSqbVUumYkFenxmqDg/image/landscape_comp.jpeg"
+                            alt="Gaming" class="w-full h-full object-cover" />
+                    </div>
+                    <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-4 border border-slate-700">
+                        <p class="text-xs text-slate-400">Título vigente</p>
+                        <p class="text-lg font-bold">Supremo Líder Temporal</p>
+                        <p class="text-sm">— <span id="liderActual">Por definir</span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section id="agenda" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-end justify-between mb-6">
+                <h2 class="text-2xl md:text-3xl font-bold">Agenda & Días de Juego</h2>
+                <a href="#unete" class="text-indigo-400 text-sm hover:underline">Sumarte al grupo →</a>
+            </div>
+            <div class="grid md:grid-cols-3 gap-6">
+
+                <div
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold">Días oficiales</h3>
+                    <ul class="mt-2 text-slate-300 text-sm list-disc list-inside">
+                        <li>L -V 10:00 p.m. (Fortnite)</li>
+                        <li>Sábados 10:00 p.m. (Rotativo)</li>
+                        <li>Domingos 7:00 p.m. (Torneos)</li>
+                    </ul>
+                </div>
+                <div
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold">Plataformas</h3>
+                    <p class="text-sm text-slate-300">PC/PS — chat por Discord/WhatsApp.</p>
+                    <div class="mt-3 flex gap-2">
+                        <a href="#" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700">Discord</a>
+                        <a href="#" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700">WhatsApp</a>
+                    </div>
+                </div>
+                <div
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold">Reglas flash</h3>
+                    <ol class="mt-2 text-slate-300 text-sm list-decimal list-inside">
+                        <li>Respetar loot aliado.</li>
+                        <li>No AFK.</li>
+                        <li>Carroñadas tienen sanción 😼.</li>
+                    </ol>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONSTITUCIÓN / REGLAS -->
+    <!-- <section id="reglas" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Constitución Gamer</h2>
+            <p class="text-slate-300 mt-2">Preámbulo, artículos y sanciones para mantener el honor gamer.</p>
+            <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <article class="glass rounded-2xl p-6 border border-slate-700">
+                    <h3 class="font-semibold mb-2">Artículo III — Carroñadas</h3>
+                    <ul class="text-sm text-slate-300 list-disc list-inside">
+                        <li>Definición de carroñada y registro del perpetrador.</li>
+                        <li>Burla pública 24h · Skin fea · Sin loot legendario.</li>
+                        <li>La "Victoria Rata" queda anotada como nula moralmente.</li>
+                    </ul>
+                    <button class="mt-4 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500"
+                        data-open="#modalConstitucion">Leer Constitución completa</button>
+                </article>
+                <article class="glass rounded-2xl p-6 border border-slate-700">
+                    <h3 class="font-semibold mb-2">Artículo II — Torneos</h3>
+                    <p class="text-sm text-slate-300">El ganador es <strong>Supremo Líder Temporal</strong>; el último,
+                        <strong>Cofrade del Lag</strong>.
+                    </p>
+                    <div class="mt-4 text-sm">
+                        <label class="block mb-1 text-slate-400">Próximo modo</label>
+                        <select id="modoTorneo"
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2">
+                            <option>Fortnite — Solos</option>
+                            <option>Fortnite — Dúos</option>
+                            <option>Among Us</option>
+                            <option>Left 4 Dead — Campaña</option>
+                        </select>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </section> -->
+
+    <section id="reglas" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Constitución Gamer</h2>
+            <p class="text-slate-300 mt-2">Preámbulo, artículos y sanciones para mantener el honor gamer.</p>
+
+            <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <article
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold mb-2">Artículo I – Días de juego</h3>
+                    <ul class="text-sm text-slate-300 list-disc list-inside">
+                        <li>Los días oficiales de reunión gamer serán aquellos acordados.</li>
+                        <li>El ausente injustificado será declarado NPC.</li>
+                    </ul>
+                </article>
+
+                <article
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold mb-2">Artículo II — Torneos</h3>
+                    <p class="text-sm text-slate-300">El ganador es <strong>Supremo Líder Temporal</strong>; el último,
+                        <strong>Cofrade del Lag</strong>.
+                    </p>
+                </article>
+
+                <article
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold mb-2">Artículo III — Carroñadas</h3>
+                    <ul class="text-sm text-slate-300 list-disc list-inside">
+                        <li>Burla pública 24h · Skin fea · Sin loot legendario.</li>
+                        <li>La "Victoria Rata" queda anotada como nula moralmente.</li>
+                    </ul>
+                </article>
+
+                <article
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold mb-2">Artículo IV — Sanciones Mayores</h3>
+                    <p class="text-sm text-slate-300">Caer en Tilted sin armas, morir primero en Among Us o usar solo
+                        pistola en
+                        Left 4 Dead.</p>
+                </article>
+
+                <article
+                    class="glass rounded-2xl p-5 border border-slate-700 hover:bg-slate-800 hover:scale-[1.02] hover:shadow-lg transition duration-300">
+                    <h3 class="font-semibold mb-2">Artículo V — Enmiendas</h3>
+                    <p class="text-sm text-slate-300">Cualquier miembro puede proponer reformas. Emojis cuentan como
+                        votos.</p>
+                </article>
+            </div>
+
+            <div class="text-center mt-8">
+                <button class="px-6 py-3 rounded-xl bg-indigo-600 hover:bg-indigo-500"
+                    data-open="#modalConstitucion">Leer Constitución completa</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- <section id="reglas" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Constitución Gamer</h2>
+            <p class="text-slate-300 mt-2">Preámbulo, artículos y sanciones para mantener el honor gamer.</p>
+
+            Bloque con todos los artículos resumidos
+            <div class="mt-6 glass rounded-2xl p-6 border border-slate-700">
+                <h3 class="font-semibold mb-4">Resumen de artículos</h3>
+                <ul class="text-sm text-slate-300 list-disc list-inside space-y-2">
+                    <li><strong>Art. I — Respeto:</strong> Loot y callouts son sagrados.</li>
+                    <li><strong>Art. II — Torneos:</strong> Ganador = Supremo Líder Temporal. Último = Cofrade del Lag.
+                    </li>
+                    <li><strong>Art. III — Carroñadas:</strong> Burla pública · Skin fea · Sin loot legendario ·
+                        “Victoria Rata”.</li>
+                    <li><strong>Art. IV — Sanciones Mayores:</strong> Tilted Towers sin armas · Sacrificio en Among Us ·
+                        Pistola en L4D.</li>
+                    <li><strong>Art. V — Enmiendas:</strong> Reformas o memes con mayoría absoluta (emojis cuentan).
+                    </li>
+                </ul>
+                <button class="mt-6 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500"
+                    data-open="#modalConstitucion">📜 Leer Constitución completa</button>
+            </div>
+        </div>
+    </section> -->
+
+
+
+
+    <!-- TORNEOS / BRACKET MOCK -->
+    <section id="torneos" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex items-end justify-between">
+                <h2 class="text-2xl md:text-3xl font-bold">Torneos & Clasificación</h2>
+                <button id="sortBtn"
+                    class="text-sm px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700 hover:border-indigo-400">Ordenar
+                    por puntos</button>
+            </div>
+
+            <!-- Tabla editable básica -->
+            <div class="mt-6 overflow-x-auto">
+                <table class="min-w-[640px] w-full text-sm border border-slate-800 rounded-2xl overflow-hidden">
+                    <thead class="bg-slate-900/70">
+                        <tr>
+                            <th class="px-3 py-2 text-left">Jugador</th>
+                            <!-- <th class="px-3 py-2 text-left">Puntos</th> -->
+                            <th class="px-3 py-2 text-left">Victorias</th>
+                            <th class="px-3 py-2 text-left">Victorias Rata</th>
+                            <th class="px-3 py-2 text-left">Acciones</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tablaRank" class="divide-y divide-slate-800">
+                        <tr>
+                            <td class="px-3 py-2">Joel</td>
+                            <td class="px-3 py-2">12</td>
+                            <td class="px-3 py-2">2</td>
+                            <td class="px-3 py-2">3</td>
+                            <td class="px-3 py-2"><button class="px-2 py-1 text-xs rounded bg-slate-800" data-add-vr>+
+                                    VR</button></td>
+                        </tr>
+                        <tr>
+                            <td class="px-3 py-2">Pierre</td>
+                            <td class="px-3 py-2">18</td>
+                            <td class="px-3 py-2">3</td>
+                            <td class="px-3 py-2">0</td>
+                            <td class="px-3 py-2"><button class="px-2 py-1 text-xs rounded bg-slate-800" data-add-vr>+
+                                    VR</button></td>
+                        </tr>
+                        <tr>
+                            <td class="px-3 py-2">Majo</td>
+                            <td class="px-3 py-2">10</td>
+                            <td class="px-3 py-2">1</td>
+                            <td class="px-3 py-2">1</td>
+                            <td class="px-3 py-2"><button class="px-2 py-1 text-xs rounded bg-slate-800" data-add-vr>+
+                                    VR</button></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p class="text-xs text-slate-400 mt-2">Tip: exporta a CSV con el botón al final.</p>
+            </div>
+
+            <div class="mt-4 flex flex-wrap gap-2">
+                <button id="exportBtn" class="px-3 py-1.5 rounded-xl bg-indigo-600 hover:bg-indigo-500">Exportar
+                    CSV</button>
+                <button id="liderBtn" class="px-3 py-1.5 rounded-xl bg-slate-900 border border-slate-700">Establecer
+                    Líder</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- CARROÑÓMETRO -->
+    <section id="carro" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold">Carroñómetro <span
+                    class="text-sm font-normal text-slate-400">(contabiliza carroñadas por jugador)</span></h2>
+            <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <div class="glass rounded-2xl p-6 border border-slate-700">
+                    <label class="block text-sm text-slate-300">Jugador</label>
+                    <input id="jugadorInput"
+                        class="mt-1 w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2"
+                        placeholder="Joel" />
+                    <label class="block mt-4 text-sm text-slate-300">Cantidad</label>
+                    <input id="cantidadInput" type="number"
+                        class="mt-1 w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2" value="1" />
+                    <button id="sumarBtn" class="mt-4 px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500">Sumar
+                        carroñadas</button>
+                </div>
+                <div class="glass rounded-2xl p-6 border border-slate-700">
+                    <h3 class="font-semibold mb-2">Marcador</h3>
+                    <ul id="marcadorLista" class="space-y-2 text-sm"></ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ÚNETE -->
+    <section id="unete" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="grid md:grid-cols-2 gap-6 items-center">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-bold">Únete a la hermandad</h2>
+                    <p class="text-slate-300 mt-2">Rellena el mini-formulario y nos coordinamos por WhatsApp.</p>
+                    <form id="joinForm" class="mt-4 space-y-3">
+                        <input required name="nick" placeholder="Tu nick"
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2" />
+                        <input required name="plataforma" placeholder="Plataforma (PC/PS/Xbox)"
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2" />
+                        <input required name="horario" placeholder="Disponibilidad (ej. Vie noche)"
+                            class="w-full bg-slate-900 border border-slate-700 rounded-xl px-3 py-2" />
+                        <button class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500">Enviar por
+                            WhatsApp</button>
+                    </form>
+                </div>
+                <div class="aspect-video rounded-3xl neon overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?q=80&w=1600&auto=format&fit=crop"
+                        alt="gaming team" class="w-full h-full object-cover" />
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="py-16 border-t border-slate-800">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-2xl md:text-3xl font-bold">FAQ</h2>
+            <div class="mt-6 grid md:grid-cols-2 gap-6">
+                <details class="glass rounded-2xl p-4 border border-slate-700">
+                    <summary class="cursor-pointer font-semibold">¿Qué es una "Victoria Rata"?</summary>
+                    <p class="mt-2 text-sm text-slate-300">Una victoria lograda gracias a una carroñada. Vale en el
+                        juego, pero queda nula moralmente y con burla pública.</p>
+                </details>
+                <details class="glass rounded-2xl p-4 border border-slate-700">
+                    <summary class="cursor-pointer font-semibold">¿Cómo se decide el día oficial?</summary>
+                    <p class="mt-2 text-sm text-slate-300">Por mayoría simple en el chat. Emojis cuentan como voto.</p>
+                </details>
+                <details class="glass rounded-2xl p-4 border border-slate-700">
+                    <summary class="cursor-pointer font-semibold">¿Puedo invitar gente nueva?</summary>
+                    <p class="mt-2 text-sm text-slate-300">Sí. Comparte el enlace de esta landing y coordina en el
+                        grupo.</p>
+                </details>
+                <details class="glass rounded-2xl p-4 border border-slate-700">
+                    <summary class="cursor-pointer font-semibold">¿Dónde leo la Constitución completa?</summary>
+                    <p class="mt-2 text-sm text-slate-300">Click en "Leer Constitución completa" en la sección de
+                        Reglas.</p>
+                </details>
+            </div>
+        </div>
+    </section>
+
+    <footer class="border-t border-slate-800 py-10">
+        <div
+            class="max-w-6xl mx-auto px-4 text-sm text-slate-400 flex flex-col md:flex-row items-center justify-between gap-4">
+            <p>© <span id="year"></span> Fornais Black Power — Hecho con <span class="text-indigo-400">GGs</span>.</p>
+            <div class="flex gap-3">
+                <a href="#hero" class="hover:text-indigo-300">Inicio</a>
+                <a href="#reglas" class="hover:text-indigo-300">Constitución</a>
+                <a href="#unete" class="hover:text-indigo-300">Únete</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- MODALES -->
+    <dialog id="modalConstitucion" class="backdrop:bg-black/60 rounded-2xl w-[min(840px,95vw)] p-0">
+        <div class="bg-slate-950 text-slate-100 border border-slate-800 rounded-2xl overflow-hidden">
+            <!-- Header -->
+            <div class="flex items-center justify-between px-5 py-3 border-b border-slate-800">
+                <h4 class="font-semibold">Constitución Gamer — Fornais Black Power</h4>
+                <button class="text-slate-400 hover:text-white" data-close>&#10005;</button>
+            </div>
+
+            <!-- Content -->
+            <div class="p-5 space-y-5 text-sm leading-relaxed max-h-[70vh] overflow-auto">
+
+                <!-- Preámbulo -->
+                <section>
+                    <p class="text-justify">
+                        <strong>Preámbulo.</strong><br>
+                        Nosotros, los integrantes de la sagrada hermandad gamer, reunidos en espíritu de camaradería,
+                        risas
+                        y sudor digital, declaramos esta Constitución como fundamento de nuestra unión, a fin de
+                        asegurar
+                        partidas justas, sanciones memorables y gloriosas victorias en Fortnite, Left 4 Dead, Among Us y
+                        cualesquiera otros juegos que se crucen en nuestro destino.
+                    </p>
+                </section>
+
+                <!-- Artículo I -->
+                <section>
+                    <strong>Artículo I – Días de juego.</strong>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Los días oficiales de reunión gamer serán aquellos acordados por mayoría simple en el chat
+                            grupal.</li>
+                        <li>El ausente injustificado será declarado NPC de la semana.</li>
+                    </ul>
+                </section>
+
+                <!-- Artículo II -->
+                <section>
+                    <strong>Artículo II – Torneos.</strong>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Se podrán convocar torneos internos en cualquier juego elegido por consenso.</li>
+                        <li>El ganador del torneo será nombrado Supremo Líder Temporal hasta el siguiente evento.</li>
+                        <li>El perdedor absoluto (último lugar) recibirá el título de Cofrade del Lag, el cual deberá
+                            llevar con honor y vergüenza.</li>
+                    </ul>
+                </section>
+
+                <!-- Artículo III -->
+                <section>
+                    <strong>Artículo III – Carroñadas.</strong>
+                    <ul class="list-disc list-inside mt-2 space-y-1">
+                        <li>Se define como carroñada el acto infame en el que un jugador ataca a combatientes ya
+                            debilitados tras un enfrentamiento.</li>
+                        <li>El perpetrador será declarado Carroñero Oficial de la partida.</li>
+                        <li>En caso de reincidencia, el perpetrador (sí, Joel) recibirá sanciones adicionales, tales
+                            como:</li>
+                        <ul class="list-decimal list-inside ml-5 space-y-1">
+                            <li>Burla pública en el chat por un mínimo de 24 horas.</li>
+                            <li>Pagar simbólicamente con una skin fea durante la siguiente partida.</li>
+                            <li>Pérdida del derecho a reclamar loot legendario por una partida completa.</li>
+                        </ul>
+                        <li>Si el carroñero consigue la victoria gracias a su fechoría, la victoria será considerada
+                            “nula moralmente” y registrada en los anales como Victoria Rata.</li>
+                    </ul>
+                </section>
+
+                <!-- Artículo IV -->
+                <p><strong>Artículo IV — Sanciones Mayores.</strong></p>
+                <ul class="list-disc list-inside pl-5 space-y-1">
+                    <li>El Consejo Gamer podrá imponer sentencias de muerte simbólicas tales como:</li>
+                    <ul class="list-decimal list-inside pl-5 space-y-1">
+                        <li>Caer obligatoriamente en Tilted Towers sin armas.</li>
+                        <li>Ser sacrificado primero en Among Us aunque no sea impostor.</li>
+                        <li>Iniciar Left 4 Dead con pistola únicamente durante una misión.</li>
+                    </ul>
+                </ul>
+
+                <!-- Artículo V -->
+                <p><strong>Artículo V – Enmiendas.</strong></p>
+                <ul class="list-disc list-inside pl-5 space-y-1">
+                    <li>Cualquier miembro podrá proponer reformas, sanciones nuevas o memes constitucionales.</li>
+                    <li>Para aprobarse, se requiere mayoría absoluta de los presentes en el chat (emojis cuentan como
+                        voto válido).</li>
+                </ul>
+            </div>
+
+            <!-- Footer -->
+            <div class="px-5 py-4 border-t border-slate-800 flex justify-end">
+                <button class="px-4 py-2 rounded-xl bg-indigo-600 hover:bg-indigo-500" data-close>Cerrar</button>
+            </div>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
