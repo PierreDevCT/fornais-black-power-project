@@ -39,9 +39,9 @@ document.getElementById('themeBtn').addEventListener('click', () => {
     document.body.classList.toggle('text-slate-900');
 });
 
-// Countdown configurable: set below (YYYY-MM-DDTHH:MM)
+/* // Countdown configurable: set below (YYYY-MM-DDTHH:MM)
 const countdownEl = document.getElementById('countdown');
-countdownEl.dataset.date = countdownEl.dataset.date || new Date(new Date().getTime() + 3 * 24 * 60 * 60 * 1000).toISOString().slice(0, 16); // +3 días por defecto
+countdownEl.dataset.date = countdownEl.dataset.date || new Date(new Date().getTime() + 0 * 24 * 60 * 60 * 1000).toISOString().slice(0, 16); // +3 días por defecto
 function updateCountdown() {
     const target = new Date(countdownEl.dataset.date);
     const diff = target - new Date();
@@ -52,7 +52,35 @@ function updateCountdown() {
     const s = Math.floor((diff % 60000) / 1000);
     countdownEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
 }
-setInterval(updateCountdown, 1000); updateCountdown();
+setInterval(updateCountdown, 1000); updateCountdown(); */
+
+const countdownEl = document.getElementById('countdown');
+
+function updateCountdown() {
+    const now = new Date();
+
+    // Creamos el objetivo: hoy a las 22:00
+    let target = new Date();
+    target.setHours(22, 0, 0, 0); // 22:00:00
+
+    // Si ya pasó la 10pm de hoy → usar mañana a las 10pm
+    if (now > target) {
+        target.setDate(target.getDate() + 1);
+    }
+
+    const diff = target - now;
+
+    const d = Math.floor(diff / 86400000);
+    const h = Math.floor((diff % 86400000) / 3600000);
+    const m = Math.floor((diff % 3600000) / 60000);
+    const s = Math.floor((diff % 60000) / 1000);
+
+    countdownEl.textContent = `${d}d ${h}h ${m}m ${s}s`;
+}
+
+setInterval(updateCountdown, 1000);
+updateCountdown();
+
 
 /* TORNEOS / BRACKET MOCK */
 
@@ -145,6 +173,7 @@ document.getElementById('exportBtn').addEventListener('click', () => {
 }); */
 
 // Carroñómetro simple (memoria local)
+/*
 const marcador = JSON.parse(localStorage.getItem('carro') || '{}');
 const lista = document.getElementById('marcadorLista');
 function renderMarcador() {
@@ -164,8 +193,10 @@ document.getElementById('sumarBtn').addEventListener('click', () => {
     localStorage.setItem('carro', JSON.stringify(marcador));
     renderMarcador();
 });
+*/
 
 // Enviar por WhatsApp
+/*
 document.getElementById('joinForm').addEventListener('submit', (e) => {
     e.preventDefault();
     const data = Object.fromEntries(new FormData(e.target).entries());
@@ -173,3 +204,31 @@ document.getElementById('joinForm').addEventListener('submit', (e) => {
     // Reemplaza con tu wa.me/XXXXXXXXXXX
     window.open(`https://wa.me/51999999999?text=${msg}`, '_blank');
 });
+*/
+
+// Enviar por WhatsApp
+/* document.getElementById('joinForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    // Si igual querés recoger los datos del form, los dejamos
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    const msg = `Solicitud de ingreso FBP\n- Nick: ${data.nick}\n- Plataforma: ${data.plataforma}\n- Disponibilidad: ${data.horario}`;
+    
+    // Esto abre el link de tu grupo directamente
+    window.open('https://chat.whatsapp.com/GfwwV16Nx5LFhiGpIvwHls', '_blank');
+    
+    // Si también querés mostrar el mensaje en pantalla para que lo copien:
+    alert(msg);
+}); */
+
+// Enviar por WhatsApp
+document.getElementById('joinForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const data = Object.fromEntries(new FormData(e.target).entries());
+    const msg = encodeURIComponent(
+        `Solicitud de ingreso FBP\n- Nick: ${data.nick}\n- Plataforma: ${data.plataforma}\n- Disponibilidad: ${data.horario}`
+    );
+    // ✅ Aquí va tu número real
+    window.open(`https://wa.me/51964429685?text=${msg}`, '_blank');
+});
+
+
