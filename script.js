@@ -13,7 +13,7 @@ closeBtns.forEach(btn => btn.addEventListener('click', (e) => {
     dialog?.close();
 })); */
 
-// Modal Constitución
+// Modal Constitución (Modificado)
 const openBtns = document.querySelectorAll('[data-open]');
 const closeBtns = document.querySelectorAll('[data-close]');
 
